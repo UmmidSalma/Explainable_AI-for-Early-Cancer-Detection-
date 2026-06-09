@@ -10,7 +10,7 @@ Detecting fine-grained textures on glands is exceptionally challenging. Deep lea
 
 ## Superior Accuracy
 
-The success of the UltraCamNet architecture is demonstrated by its significant performance enhancement over established baselines, achieving an absolute improvement of 0.14 (a ~20% relative improvement) over the strongest EfficientNet baseline, reaching a highest accuracy of **0.8433**.
+The success of the UltraCamNet architecture is demonstrated by its significant performance enhancement over established baselines, achieving an absolute improvement of 0.14 (a ~20% relative improvement) over the strongest EfficientNet baseline, reaching a highest accuracy of **0.8733**.
 
 ### Table 1: Accuracy Comparison of Baseline CNN vs. UltraCamNet
 
@@ -20,7 +20,7 @@ The success of the UltraCamNet architecture is demonstrated by its significant p
 | MobileNetV3 | 0.5004 |
 | EfficientNet-B0 | 0.6823 |
 | EfficientNet-B3 | 0.7033 |
-| **UltraCamNet** | **0.8433** |
+| **UltraCamNet** | **0.8733** |
 
 ## Explainable AI (Grad-CAM Visualizations)
 
