@@ -1,9 +1,9 @@
 # UltraCamNet: Explainable AI for Early Cancer Detection in Digital Histopathology
 
-![Conference](https://img.shields.io/badge/ICAMC_2026-Accepted-brightgreen)
+![Conference](https://img.shields.io/badge/ICRAAI_2026-Accepted-brightgreen)
 ![Dataset](https://img.shields.io/badge/Dataset-PatchCamelyon-blue)
 ![Framework](https://img.shields.io/badge/Framework-TensorFlow_2.x-orange)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 
 This repository contains the implementation of **UltraCamNet-V5**, a convolutional neural network architecture developed for robust and accurate detection of metastatic tissue in histopathology images using the PatchCamelyon (PCam) dataset. This work has been peer-reviewed and **accepted to the ICAMC 2026 conference**.
 
