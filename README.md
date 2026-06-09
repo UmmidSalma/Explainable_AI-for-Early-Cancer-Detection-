@@ -67,7 +67,12 @@ Grad-CAM visualizations serve to:
 - Facilitate future research in scalable computational pathology
 
 ---
+## System Architecture
 
+![UltraCamNet Architecture](architecture.png)
+*End-to-end pipeline: data loading, model training, callbacks, and Grad-CAM evaluation.*
+
+---
 ## Architecture Highlights
 
 - **SE-Residual Blocks** — Channel-wise feature recalibration for improved representational power
