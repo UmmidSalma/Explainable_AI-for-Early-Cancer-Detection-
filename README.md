@@ -69,7 +69,7 @@ Grad-CAM visualizations serve to:
 ---
 ## System Architecture
 
-![UltraCamNet Architecture](architecture.png)
+![UltraCamNet Architecture](ar.png)
 *End-to-end pipeline: data loading, model training, callbacks, and Grad-CAM evaluation.*
 
 ---
