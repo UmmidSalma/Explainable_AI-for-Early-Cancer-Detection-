@@ -1,42 +1,135 @@
 # UltraCamNet: Explainable AI for Early Cancer Detection in Digital Histopathology
 
-This repository contains the implementation of **UltraCamNet-V5**, a convolutional neural network architecture developed for robust and accurate detection of metastatic tissue in histopathology images (PatchCamelyon dataset). This work has been accepted to the **icAMC 2026 conference**.
+![Conference](https://img.shields.io/badge/ICAMC_2026-Accepted-brightgreen)
+![Dataset](https://img.shields.io/badge/Dataset-PatchCamelyon-blue)
+![Framework](https://img.shields.io/badge/Framework-TensorFlow_2.x-orange)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
+This repository contains the implementation of **UltraCamNet-V5**, a convolutional neural network architecture developed for robust and accurate detection of metastatic tissue in histopathology images using the PatchCamelyon (PCam) dataset. This work has been peer-reviewed and **accepted to the ICAMC 2026 conference**.
+
+---
 
 ## Overview
 
-Detecting fine-grained textures on glands is exceptionally challenging. Deep learning models like MobileNet variants have historically faced a hard time, often resulting in relatively low accuracies (e.g., typically around 48–50%). EfficientNet models demonstrate a clear enhancement because of compound scaling, but still face limitations.
+Automated detection of metastatic tissue in histopathology patches is a challenging computer vision problem. Lightweight models such as MobileNet variants have historically underperformed on this task, often achieving accuracies in the range of 48–50%. EfficientNet models show clear improvements through compound scaling, but still face limitations in fine-grained feature discrimination.
 
-**UltraCamNet** is specifically engineered to overcome these limitations. With the integration of **SE-Residual Blocks**, the architecture leverages channel-level recalibration of features combined with depthwise separable convolutions to maximize representational capacity without increasing computational burdens.
+**UltraCamNet** is specifically engineered to overcome these limitations. By integrating **SE-Residual Blocks (Squeeze-and-Excitation)**, the architecture leverages channel-level recalibration combined with depthwise separable convolutions to maximize representational capacity without increasing computational burden. Additional techniques including **CutMix augmentation**, **Test-Time Augmentation (TTA)**, learning rate scheduling, and regularization ensure stable and effective optimization.
 
-## Superior Accuracy
+---
 
-The success of the UltraCamNet architecture is demonstrated by its significant performance enhancement over established baselines, achieving an absolute improvement of 0.14 (a ~20% relative improvement) over the strongest EfficientNet baseline, reaching a highest accuracy of **0.8733**.
+## Dataset
 
-### Table 1: Accuracy Comparison of Baseline CNN vs. UltraCamNet
+**PatchCamelyon (PCam)**
+- Source: Kaggle (public histopathology benchmark)
+- Total images: **327,680** patches (96×96 pixels)
+- Binary classification: **Metastatic** vs **Non-metastatic** lymph node tissue
+- Approximate size: ~8 GB
+- Split:
+  - Training: 262,144 images
+  - Validation: 32,768 images
+  - Testing: 32,768 images
+
+---
+
+## Results
+
+UltraCamNet achieves significant performance improvement over all evaluated baselines:
+
+### Table 1: Accuracy Comparison — Baseline CNNs vs. UltraCamNet
 
 | Model | Accuracy |
-| --- | --- |
+|---|---|
 | MobileNetV2 | 0.4866 |
 | MobileNetV3 | 0.5004 |
 | EfficientNet-B0 | 0.6823 |
 | EfficientNet-B3 | 0.7033 |
-| **UltraCamNet** | **0.8733** |
+| **UltraCamNet (Ours)** | **0.8733** |
 
-## Explainable AI (Grad-CAM Visualizations)
+### Key Metrics
 
-Explainability is crucial in automated medical diagnostics. We integrate **Grad-CAM visualization** to highlight the spatial areas that have the most significant impact on model predictions. These localized areas:
-- Prove the model's interpretability by identifying precisely where the network pays attention when classifying types of tumors.
-- Prevent spurious classification by revealing any instances where the model concentrates on irrelevant visual artifacts.
-- Provide transparent reasoning to inform future clinical trust and further automated histopathology analysis.
+| Metric | Value |
+|---|---|
+| Test Accuracy | **87.33%** |
+| Validation AUC | **0.9660** |
+
+UltraCamNet achieves an absolute improvement of **+0.14** (~20% relative improvement) over the strongest EfficientNet baseline, while maintaining a lightweight architecture suitable for resource-constrained deployment.
+
+---
+
+## Explainable AI — Grad-CAM Visualizations
+
+Interpretability is critical in clinical and medical AI systems. UltraCamNet integrates **Grad-CAM (Gradient-weighted Class Activation Mapping)** to highlight spatial regions most influential to model predictions.
+
+Grad-CAM visualizations serve to:
+- Confirm the model attends to biologically relevant tissue regions during classification
+- Detect and prevent spurious correlations or attention to visual artifacts
+- Provide transparent, human-interpretable reasoning to support clinical trust
+- Facilitate future research in scalable computational pathology
+
+---
+
+## Architecture Highlights
+
+- **SE-Residual Blocks** — Channel-wise feature recalibration for improved representational power
+- **Depthwise Separable Convolutions** — Lightweight design without sacrificing depth
+- **CutMix Augmentation** — Improves generalization by mixing training patches
+- **Test-Time Augmentation (TTA)** — Boosts inference robustness
+- **Mixed Precision Training** — Faster training with reduced memory footprint
+- **Learning Rate Scheduling + Regularization** — Stable convergence and reduced overfitting
+
+---
 
 ## Repository Contents
-- `UltraCamNet_Cancer_Detection.ipynb`: A comprehensive Jupyter Notebook containing the data pipeline, the UltraCamNet architectural code, the training loop with mixed precision support, evaluation scripts, and the model interpretability implementation (Grad-CAM grids) using `tf-keras-vis`.
 
-### Dependencies
-- TensorFlow 2.x
-- Keras
-- tf-keras-vis (for Grad-CAM visualization)
-- NumPy, OpenCV, Matplotlib, h5py
+```
+├── UltraCamNet_Cancer_Detection.ipynb   # Full pipeline: data loading, model architecture,
+                                          # training, evaluation, and Grad-CAM visualization
+└── README.md
+```
+
+### Running the Notebook
+
+Open directly in Google Colab:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/01fe24bcs407-hash/UltraCamNet/blob/main/UltraCamNet_Cancer_Detection.ipynb)
+
+> **Note:** The PCam dataset (~8 GB) can be downloaded via Kaggle API inside the notebook. Ensure your Kaggle credentials (`kaggle.json`) are configured.
+
+---
+
+## Dependencies
+
+```
+tensorflow>=2.x
+keras
+tf-keras-vis
+numpy
+opencv-python
+matplotlib
+h5py
+```
+
+Install via:
+```bash
+pip install tensorflow tf-keras-vis opencv-python matplotlib h5py
+```
+
+---
+
+## Citation
+
+If you use this work, please cite:
+
+```
+@inproceedings{ultracamnet2026,
+  title     = {UltraCamNet: Explainable AI for Early Cancer Detection in Digital Histopathology},
+  booktitle = {Proceedings of ICAMC 2026},
+  year      = {2026}
+}
+```
+
+---
 
 ## Acknowledgments
-We are thrilled to share that this research has been successfully peer-reviewed and **accepted to the ICAMC 2026 conference**.
+
+This research was peer-reviewed and accepted to the **ICRAAI 2026 conference**. We thank the creators of the PatchCamelyon dataset and the open-source TensorFlow and tf-keras-vis communities.
