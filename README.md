@@ -114,19 +114,6 @@ Install via:
 pip install tensorflow tf-keras-vis opencv-python matplotlib h5py
 ```
 
----
-
-## Citation
-
-If you use this work, please cite:
-
-```
-@inproceedings{ultracamnet2026,
-  title     = {UltraCamNet: Explainable AI for Early Cancer Detection in Digital Histopathology},
-  booktitle = {Proceedings of ICAMC 2026},
-  year      = {2026}
-}
-```
 
 ---
 
