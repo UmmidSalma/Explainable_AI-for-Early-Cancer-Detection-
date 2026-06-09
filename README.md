@@ -5,7 +5,7 @@
 ![Framework](https://img.shields.io/badge/Framework-TensorFlow_2.x-orange)
 
 
-This repository contains the implementation of **UltraCamNet-V5**, a convolutional neural network architecture developed for robust and accurate detection of metastatic tissue in histopathology images using the PatchCamelyon (PCam) dataset. This work has been peer-reviewed and **accepted to the ICAMC 2026 conference**.
+This repository contains the implementation of **UltraCamNet-V5**, a convolutional neural network architecture developed for robust and accurate detection of metastatic tissue in histopathology images using the PatchCamelyon (PCam) dataset. This work has been peer-reviewed and **accepted to the ICRAAI 2026 conference**.
 
 ---
 
