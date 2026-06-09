@@ -92,15 +92,6 @@ Grad-CAM visualizations serve to:
 └── README.md
 ```
 
-### Running the Notebook
-
-Open directly in Google Colab:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/01fe24bcs407-hash/UltraCamNet/blob/main/UltraCamNet_Cancer_Detection.ipynb)
-
-> **Note:** The PCam dataset (~8 GB) can be downloaded via Kaggle API inside the notebook. Ensure your Kaggle credentials (`kaggle.json`) are configured.
-
----
 
 ## Dependencies
 
